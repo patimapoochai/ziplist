@@ -1,12 +1,14 @@
 function ziplist(list1, list2) {
   let returnList = [];
-  for (let i = 0;i < list1.length + list2.length; i+= 1) {
-    returnList[i] = list1[i];
-    returnList[i + 1] = list2[i];
+  for (let i = 0; i < list1.length; i++) {
+    returnList.push(list1[i], list2[i]);
   }
   return returnList;
 }
 
-console.log(ziplist(["a", "b", "c"],["1", "2", "3"]));
+function ziplistTheSimpleWay (list1, list2) {
+ return _.flatten(_.zip(list1, list2));
+}
 
-//time #1: DNF 17min12s
+console.log(ziplist(["a","b","c"], ["1","2","3"]));
+console.log(ziplistTheSimpleWay(["a","b","c"], ["1","2","3"]));
